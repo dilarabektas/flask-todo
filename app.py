@@ -44,11 +44,11 @@ def sil(id):
     #anasayfaya yönlendir
     return redirect('/')
 
-@app.route('/ekle', methods =['POST'])
+@app.route('/ekle', methods = ['POST'])
 def ekle():
     #kullanıcıdan sadece isim aldık
     #durumu default olarak false kabul ediyoruz
-   isim= request.form('isim')
+   isim= request.form.get('isim')
    db.insert_one({'isim':isim, 'durum':'False'})  
    return redirect('/')
 
