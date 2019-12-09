@@ -38,9 +38,7 @@ def guncelle(id):
 def sil(id):
     #id'si gelen kaydı sil
     db.find_one_and_delete({
-        '_id':ObjectId(id)},
-        {'$set':{'durum':durum}}
-    )
+        '_id':ObjectId(id)})
     #anasayfaya yönlendir
     return redirect('/')
 
