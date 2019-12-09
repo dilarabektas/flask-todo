@@ -23,7 +23,7 @@ def index():
 @app.route('/guncelle/<id>')
 def guncelle(id):
     #gelen id değeri ile kaydı bulalımö
-    yap = db.find({'_id':ObjectId(id)})
+    yap = db.find_one({'_id':ObjectId(id)})
     #durm değeri true ise false, false ise Ture
     durum= not yap.get('durum')
     #kayıdı güncelle
@@ -48,7 +48,7 @@ def sil(id):
 def ekle():
     #kullanıcıdan sadece isim aldık
     #durumu default olarak false kabul ediyoruz
-   isim= request.form.get('isim')
+   isim = request.form.get('isim')
    db.insert_one({'isim':isim, 'durum':'False'})  
    return redirect('/')
 
